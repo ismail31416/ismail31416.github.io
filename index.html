@@ -595,7 +595,15 @@
 	  border: 3px solid #ddd;
 }
 	 
-	
+
+	.visitor-map-container {
+    width: 300px;          /* control size here */
+    margin: 40px auto 0;   /* center horizontally */
+    text-align: center;
+    transform: scale(0.85); /* optional: shrink more */
+    transform-origin: top center;
+}
+
   </style>
 </head>
 <body>
@@ -988,7 +996,7 @@
       <!-- [2] -->
       <li class="pub-item">
         <div class="pub-thumb-placeholder">
-			<img src="images/paper2.png" class="pub-thumb" alt="Publication Figure">
+			<img src="images/paper2.PNG" class="pub-thumb" alt="Publication Figure">
 		</div>
         <div class="pub-content">
           <div class="pub-top">
@@ -1236,8 +1244,15 @@
     </div>
   </section>
 
-<script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=f3K1K6hGj3AZOtl08LhBeI1vwxJuDpkLIk6mXFgmJ_w&cl=ffffff&w=a"></script>
+<!-- Main content above -->
 
+<div class="visitor-map-container">
+  <script type="text/javascript" id="mapmyvisitors"
+    src="//mapmyvisitors.com/map.js?d=f3K1K6hGj3AZOtl08LhBeI1vwxJuDpkLIk6mXFgmJ_w&cl=ffffff&w=a">
+  </script>
+</div>
+
+<!-- Main content below (if any footer etc.) -->
 </main>
 
 <footer>
