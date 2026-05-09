@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Ismail Hossain — ML Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F7F6F3;
+      --bg2:     #EEECEA;
+      --ink:     #1A1917;
+      --ink2:    #4A4845;
+      --ink3:    #7A7875;
+      --accent:  #1B3A6B;
+      --accent2: #2A5298;
+      --gold:    #B8860B;
+      --rule:    #D8D5D0;
+      --sans:    'DM Sans', sans-serif;
+      --serif:   'DM Serif Display', serif;
+      --mono:    'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15.5px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .announce .chip {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,246,243,0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; }
+    .nav-links a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink2);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--accent); background: var(--bg2); }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      padding: 60px 0 52px;
+      align-items: start;
+      animation: fadeUp 0.6s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .photo-placeholder {
+      width: 180px;
+      height: 210px;
+      border-radius: 4px;
+      background: var(--bg2);
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--ink3);
+      font-size: 13px;
+      text-align: center;
+      padding: 16px;
+    }
+    .photo-placeholder svg { opacity: 0.3; }
+    .hero-photo {
+      width: 180px;
+      height: 210px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .hero-role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent2);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-bio {
+      color: var(--ink2);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+    .hero-bio strong { color: var(--ink); font-weight: 600; }
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #FDF8EC;
+      border: 1px solid #DEC97A;
+      border-radius: 5px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #7A5C00;
+      margin-bottom: 22px;
+    }
+    .social-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink2);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 5px 11px;
+      background: #fff;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .social-link:hover { border-color: var(--accent2); color: var(--accent); background: #F0F4FF; }
+    .social-link svg { flex-shrink: 0; }
+
+    /* ── SECTION ── */
+    section {
+      border-top: 1px solid var(--rule);
+      padding-top: 44px;
+      margin-top: 44px;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: 26px;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    /* ── RESEARCH INTERESTS ── */
+    .interest-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { font-size: 13px; font-weight: 500; padding: 5px 13px; border-radius: 20px; letter-spacing: 0.01em; }
+    .pill-blue   { background: #EBF0FF; color: #1B3A6B; border: 1px solid #C3D0F0; }
+    .pill-green  { background: #EAF5EC; color: #1A5C28; border: 1px solid #B8DFC0; }
+    .pill-orange { background: #FEF3EB; color: #7A3C00; border: 1px solid #F0C9A0; }
+
+    /* ── NEWS (DRAGGABLE PANEL) ── */
+    .news-panel {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      /* default height; JS will resize via drag */
+      height: 280px;
+      min-height: 120px;
+      max-height: 700px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .news-scroll {
+      overflow-y: auto;
+      flex: 1;
+      padding: 0 20px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--rule) transparent;
+    }
+    .news-scroll::-webkit-scrollbar { width: 4px; }
+    .news-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+    .news-list { list-style: none; padding: 4px 0 12px; }
+    .news-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 14.5px;
+      color: var(--ink2);
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink3);
+      white-space: nowrap;
+      min-width: 68px;
+      font-weight: 500;
+    }
+    .news-text strong { color: var(--ink); font-weight: 600; }
+    .news-text a { color: var(--accent2); text-decoration: none; }
+    .news-text a:hover { text-decoration: underline; }
+
+    /* Drag handle at bottom of news panel */
+    .news-drag-handle {
+      height: 18px;
+      background: var(--bg2);
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: ns-resize;
+      flex-shrink: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background 0.15s;
+    }
+    .news-drag-handle:hover { background: #E0DDD8; }
+    .news-drag-handle svg { pointer-events: none; }
+
+    /* Scroll fade hint at top of panel */
+    .news-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px 8px;
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+    .news-panel-count {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink3);
+      letter-spacing: 0.06em;
+    }
+    .news-drag-hint {
+      font-size: 11.5px;
+      color: var(--ink3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .pub-item {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .pub-item:hover {
+      border-color: #C3D0F0;
+      box-shadow: 0 2px 12px rgba(27,58,107,0.07);
+    }
+    /* thumbnail column */
+    .pub-thumb {
+      width: 96px;
+      height: 72px;
+      border-radius: 5px;
+      background: var(--bg2);
+      border: 1px solid var(--rule);
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    /* SVG placeholder inside thumb */
+    .pub-thumb-placeholder {
+      width: 96px;
+      height: 72px;
+      border-radius: 5px;
+      background: var(--bg2);
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .pub-thumb-placeholder svg { opacity: 0.25; }
+    .pub-thumb-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--ink3);
+      text-align: center;
+      line-height: 1.3;
+    }
+    /* content column */
+    .pub-content { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+    .pub-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 5px; }
+    .pub-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink3);
+      background: var(--bg2);
+      border-radius: 4px;
+      padding: 2px 7px;
+      white-space: nowrap;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .pub-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .pub-title a { color: inherit; text-decoration: none; }
+    .pub-title a:hover { color: var(--accent2); text-decoration: underline; }
+    .pub-authors {
+      font-size: 13px;
+      color: var(--ink3);
+      margin-bottom: 9px;
+      line-height: 1.55;
+    }
+    .pub-authors strong { color: var(--ink); font-weight: 600; }
+    .pub-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+    .venue-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+    .v-tmlr   { background: #EBF4FF; color: #0A4A8C; border: 1px solid #B3D3F5; }
+    .v-icml   { background: #F0EBFF; color: #4A0A8C; border: 1px solid #C8B3F5; }
+    .v-emnlp  { background: #EBF5EC; color: #0A5C1A; border: 1px solid #A8D8B0; }
+    .v-bmvc   { background: #FEF0EB; color: #8C2A0A; border: 1px solid #F5C3A8; }
+    .v-iclr   { background: #F5ECEB; color: #8C1A0A; border: 1px solid #F0B3A8; }
+    .v-ieee   { background: #EBEFF5; color: #1A2A5C; border: 1px solid #A8B8D8; }
+    .v-plos   { background: #F5F5EB; color: #5C5A0A; border: 1px solid #D8D4A0; }
+    .v-icpr   { background: #F0F5EB; color: #2A5C0A; border: 1px solid #B3D8A0; }
+    .v-review { background: #F0F0EE; color: #4A4845; border: 1px solid #D0CEC8; font-style: italic; }
+    .v-sci    { background: #EBF5F5; color: #0A5C5C; border: 1px solid #A8D8D8; }
+    .award-star {
+      font-size: 12px;
+      background: #FDF8EC;
+      border: 1px solid #DEC97A;
+      color: #7A5C00;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-weight: 600;
+    }
+    .pub-links { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+    .pub-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent2);
+      text-decoration: none;
+      border: 1px solid #C3D0F0;
+      border-radius: 4px;
+      padding: 3px 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .pub-link:hover { background: #EBF0FF; border-color: var(--accent2); }
+    .pub-link svg { flex-shrink: 0; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 22px; }
+    .exp-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; align-items: start; }
+    .exp-org { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .exp-role { font-size: 13.5px; color: var(--ink3); font-style: italic; margin-bottom: 4px; }
+    .exp-period { font-family: var(--mono); font-size: 12px; color: var(--ink3); white-space: nowrap; text-align: right; padding-top: 2px; }
+    .exp-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; grid-column: 1; }
+
+    /* ── AWARDS ── */
+    .award-list { list-style: none; }
+    .award-item {
+      display: flex; align-items: baseline; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid var(--rule); gap: 20px;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-name { font-size: 14.5px; color: var(--ink); font-weight: 500; }
+    .award-org  { font-size: 13px; color: var(--ink3); }
+    .award-year { font-family: var(--mono); font-size: 12px; color: var(--ink3); white-space: nowrap; }
+
+    /* ── SERVICE ── */
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .service-block h3 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .venue-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .venue-tag { font-size: 12.5px; background: var(--bg2); border: 1px solid var(--rule); border-radius: 4px; padding: 3px 9px; color: var(--ink2); }
+
+    /* ── TALKS ── */
+    .talks-list { list-style: none; }
+    .talks-list li { display: flex; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 14px; color: var(--ink2); }
+    .talks-list li:last-child { border-bottom: none; }
+    .talks-year { font-family: var(--mono); font-size: 11.5px; color: var(--ink3); white-space: nowrap; min-width: 42px; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 900px;
+      margin: 64px auto 0;
+      padding: 32px 32px;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink3); }
+    .footer-inner a { color: var(--ink3); text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 36px; }
+      .photo-placeholder, .hero-photo { width: 140px; height: 160px; }
+      .hero-text h1 { font-size: 28px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-period { text-align: left; }
+      .pub-item { grid-template-columns: 1fr; }
+      .pub-thumb-placeholder { display: none; }
+      main { padding: 0 20px 60px; }
+      .nav-inner { padding: 0 20px; }
+      footer { padding: 32px 20px; }
+    }
+    @media (max-width: 480px) {
+      .nav-links a { padding: 6px 9px; font-size: 12.5px; }
+    }
+
+    /* fade-in animation for sections */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-section.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announce">
+  <span class="chip">NEW</span>
+  <strong>LumiNet</strong> earns TMLR J2C Certification (Top 10%) &amp; is invited for presentation at <strong>ICML 2026</strong> &nbsp;·&nbsp; Fatima Fellow @ Hugging Face &amp; Google Colab
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#">Ismail Hossain</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Papers</a>
+      <a href="#awards">Awards</a>
+      <a href="#service">Service</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div>
+      <div class="photo-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        <span>Add your photo here</span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="hero-role">Researcher · ML Efficiency</div>
+      <h1>Md. Ismail Hossain</h1>
+      <p class="hero-bio">
+        I am a researcher at the <strong>Apurba-NSU R&amp;D Lab</strong>, North South University, Bangladesh,
+        supervised by <strong>Dr. Nabeel Mohammed</strong>, Dr. Shafin Rahman, and Dr. Farruk Rahman.
+        I am also a <strong>Fatima Fellow</strong> (Hugging Face &amp; Google Colab), mentored by Dr. Isidora Tourni.
+      </p>
+      <p class="hero-bio">
+        My research centers on <strong>scalable and efficient machine learning</strong> — specifically
+        knowledge distillation, network pruning, and learning algorithms that bridge cognitive principles
+        and algorithmic efficiency.
+      </p>
+      <p class="hero-bio" style="font-size:14px; color:var(--ink3); font-style:italic;">
+        I offer pro-bono mentorship to first-generation undergraduate students navigating research or hardship — reach out anytime.
+      </p>
+      <div class="award-badge" style="margin-bottom:20px;">
+        <span>★</span> TMLR J2C Award — Top 10% · Invited to ICML 2026
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="mailto:ismail.hossain2018@northsouth.edu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          Email
+        </a>
+        <a class="social-link" href="https://scholar.google.com/citations?user=8f7b5YIAAAAJ" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          Google Scholar
+        </a>
+        <a class="social-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/md-ismail-hossain-771423167/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-link" href="https://twitter.com/IsmailH62420948" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          Twitter
+        </a>
+        <a class="social-link" href="https://www.kaggle.com/ismail31416" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v4.716c0 .23-.115.347-.348.347H5.58c-.235 0-.352-.117-.352-.347V.343c0-.23.117-.343.352-.343h2.359c.233 0 .348.113.348.343v14.817l6.263-6.499c.152-.204.305-.306.46-.306h3.399c.153 0 .229.062.229.188 0 .07-.036.14-.106.211l-6.538 6.537 6.73 8.574c.06.069.09.137.09.209"/></svg>
+          Kaggle
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="interests" class="fade-section" style="margin-top:0; padding-top:32px;">
+    <div class="section-label">Research Interests</div>
+    <div class="interest-pills">
+      <span class="pill pill-blue">Knowledge Distillation</span>
+      <span class="pill pill-blue">Network Pruning</span>
+      <span class="pill pill-blue">Learning Algorithms</span>
+      <span class="pill pill-green">Efficient Deep Learning</span>
+      <span class="pill pill-green">Multilingual SLMs</span>
+      <span class="pill pill-green">Multi-Modal Efficiency</span>
+      <span class="pill pill-orange">AI Ethics</span>
+      <span class="pill pill-orange">Cognitive-Inspired ML</span>
+    </div>
+  </section>
+
+  <!-- NEWS — draggable panel -->
+  <section id="news" class="fade-section">
+    <div class="section-label">Latest</div>
+    <h2>News</h2>
+
+    <div class="news-panel" id="news-panel">
+      <div class="news-panel-header">
+        <span class="news-panel-count">16 UPDATES</span>
+        <span class="news-drag-hint">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+          drag to resize
+        </span>
+      </div>
+      <div class="news-scroll">
+        <ul class="news-list">
+          <li><span class="news-date">Apr '26</span><span class="news-text"><strong>LumiNet</strong> selected for oral presentation at <strong>ICML 2026</strong> following TMLR J2C Certification (Top 10%).</span></li>
+          <li><span class="news-date">Apr '26</span><span class="news-text">Received a project grant from the <strong>Adaptations Lab</strong>. Thanks Sara and the team!</span></li>
+          <li><span class="news-date">Apr '26</span><span class="news-text">Invited to review papers at <strong>NeurIPS 2026</strong>.</span></li>
+          <li><span class="news-date">Nov '25</span><span class="news-text">Invited to review papers at <strong>TMLR</strong>.</span></li>
+          <li><span class="news-date">Sept '25</span><span class="news-text">Two papers accepted to <strong>EMNLP 2025 Industry Track</strong> — CAPSTONE and AutoDSPy.</span></li>
+          <li><span class="news-date">July '25</span><span class="news-text"><strong>LumiNet</strong> accepted at <strong>TMLR</strong>, awarded J2C Certification (Top 10%). 🎉</span></li>
+          <li><span class="news-date">July '25</span><span class="news-text">Paper accepted at <strong>Nature Scientific Data</strong>.</span></li>
+          <li><span class="news-date">July '25</span><span class="news-text">Paper accepted at <strong>IEEE SMC 2025</strong>.</span></li>
+          <li><span class="news-date">Mar '25</span><span class="news-text">Funded by the <strong>Research &amp; Innovation Center (RIC)</strong>, Govt. of Bangladesh.</span></li>
+          <li><span class="news-date">Jan '25</span><span class="news-text">Paper accepted at <strong>IEEE Transactions on Artificial Intelligence (TAI)</strong>.</span></li>
+          <li><span class="news-date">Nov '24</span><span class="news-text">Accepted to <strong>OxML 2025</strong> Oxford Machine Learning Summer School Workshop.</span></li>
+          <li><span class="news-date">Sept '24</span><span class="news-text">Received the <strong>Fatima Fellowship</strong> (Global Pre-doctoral Fellowship) from Hugging Face &amp; Google Colab.</span></li>
+          <li><span class="news-date">Jul '24</span><span class="news-text">Paper accepted at <strong>BMVC 2024</strong> — 3D Point Cloud Network Pruning.</span></li>
+          <li><span class="news-date">Mar '24</span><span class="news-text">Presented a lightning talk on <strong>LumiNet</strong> at Cohere for AI (C4AI).</span></li>
+          <li><span class="news-date">Mar '24</span><span class="news-text">Paper accepted at <strong>PML4LRS @ ICLR 2024</strong>.</span></li>
+          <li><span class="news-date">May '23</span><span class="news-text">Paper accepted at <strong>PLOS ONE</strong> (IF 3.75).</span></li>
+        </ul>
+      </div>
+      <!-- Drag handle -->
+      <div class="news-drag-handle" id="news-drag-handle" title="Drag to resize">
+        <svg width="32" height="8" viewBox="0 0 32 8" fill="none">
+          <rect x="4" y="1.5" width="24" height="1.5" rx="1" fill="#B0ADA8"/>
+          <rect x="4" y="5" width="24" height="1.5" rx="1" fill="#B0ADA8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="fade-section">
+    <div class="section-label">Selected Works</div>
+    <h2>Publications</h2>
+    <ul class="pub-list">
+
+      <!-- [11] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[11]</span>
+            <span class="pub-title">Does initialization determine pruning masks in Large Language Models?</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain</strong>, Isidora Tourni</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-review">Under Review · COLM 2026</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- [10] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[10]</span>
+            <span class="pub-title">AutoDSPy: Automating Modular Prompt Design with Reinforcement Learning for Small and Large Language Models</span>
+          </div>
+          <div class="pub-authors">Nayeem Azim, …, <strong>Md. Ismail Hossain</strong>, Farruk Rahman, Md. Rezaul Amin, Shafin Rahman, Nabeel Mohammed</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-emnlp">EMNLP Industry Track 2025</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [9] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[9]</span>
+            <span class="pub-title">CAPSTONE: Composable Attribute-Prompted Scene Translation for Zero-Shot Vision–Language Reasoning</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain*</strong>, Sadman Zaman Ridoy*, Moshiur Farazi, Farruk Rahman, Nabeel Mohammed, Shafin Rahman</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-emnlp">EMNLP Industry Track 2025</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [8] LUMINET — featured -->
+      <li class="pub-item" style="border-color:#C3D0F0; background: #FAFCFF;">
+        <div class="pub-thumb-placeholder" style="background:#EBF0FF; border-color:#C3D0F0;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2A5298" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="pub-thumb-label" style="color:#2A5298;">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[8]</span>
+            <span class="pub-title">LumiNet: Perception-Driven Knowledge Distillation via Statistical Logit Calibration</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain</strong>, Md. Mahmudul Elahi, Sameera Ramasinghe, Ali Cheraghian, Farruk Rahman, Nabeel Mohammed, Shafin Rahman</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-tmlr">TMLR 2025</span>
+            <span class="venue-badge v-icml">ICML 2026 (Invited)</span>
+            <span class="award-star">★ J2C Award · Top 10%</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="https://openreview.net/forum?id=3rU1lp9w2l" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [7] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[7]</span>
+            <span class="pub-title">Uncovering Critical Features for Deepfake Detection through the Lottery Ticket Hypothesis</span>
+          </div>
+          <div class="pub-authors">Lamia Afroza Amin*, <strong>Md. Ismail Hossain*</strong>, Thanh Toan Nguyen, Tasmiah Jahan, Mahfuzul Islam, Faisal Quader</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-ieee">IEEE SMC 2025</span>
+            <div class="pub-links">
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [6] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[6]</span>
+            <span class="pub-title">COLT: Cyclic Overlapping Lottery Tickets for Faster Pruning of Convolutional Neural Networks</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain</strong>, Mohammad Rakib, Md. Mahmudul Elahi, Nabeel Mohammed, Shafin Rahman</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-ieee">IEEE TAI 2025</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [5] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[5]</span>
+            <span class="pub-title">A Multidimensional Dataset of Student Gaming Behavior and Academic Correlates in Bangladesh</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain</strong>, Mahmudul Amin, Md. Umar Emon, Prashant V. Chavan, Aditya Rudrabatla, Faisal Quader</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-sci">Scientific Data (Nature) 2025</span>
+            <div class="pub-links">
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [4] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[4]</span>
+            <span class="pub-title">3D Point Cloud Network Pruning: When Some Weights Do not Matter</span>
+          </div>
+          <div class="pub-authors">Arnab Biswas*, <strong>Md. Ismail Hossain*</strong>, Md. Mahmudul Elahi, Ali Cheraghian, Farruk Rahman, Nabeel Mohammed, Shafin Rahman</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-bmvc">BMVC 2024</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [3] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[3]</span>
+            <span class="pub-title">Precision-Driven Low-Resource Speech Synthesis For Bangla Text-To-Speech System</span>
+          </div>
+          <div class="pub-authors">Tahmid Shahriar Shahjahan, <strong>Md. Ismail Hossain</strong>, Khandakar Rafat, Md. Rezaul Amin, Farruk Rahman, Nabeel Mohammed</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-iclr">PML4LRS @ ICLR 2024</span>
+            <div class="pub-links">
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [2] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[2]</span>
+            <span class="pub-title">Mitigating Carbon Footprint of Hyper-parameter Selection During Knowledge Distillation</span>
+          </div>
+          <div class="pub-authors">Khandakar Rafat, Saiful Islam, Abdullah Al Mahfug, <strong>Md. Ismail Hossain</strong>, Sifat Momen, Farruk Rahman, Shafin Rahman, Nabeel Mohammed</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-plos">PLOS ONE 2023</span>
+            <div class="pub-links">
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- [1] -->
+      <li class="pub-item">
+        <div class="pub-thumb-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="pub-thumb-label">add<br/>figure</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-top">
+            <span class="pub-num">[1]</span>
+            <span class="pub-title">LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition</span>
+          </div>
+          <div class="pub-authors"><strong>Md. Ismail Hossain</strong>, Mohammad Rakib, Sadman Mollah, Farruk Rahman, Nabeel Mohammed</div>
+          <div class="pub-footer">
+            <span class="venue-badge v-icpr">ICPR 2022</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://github.com/ismail31416" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Code
+              </a>
+              <a class="pub-link" href="#" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <p style="font-size:13px; color:var(--ink3); margin-top:14px;">* denotes co-first authorship. Replace placeholder thumbnails with a key figure from each paper's PDF.</p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-section">
+    <div class="section-label">Experience</div>
+    <h2>Work &amp; Research</h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div>
+          <div class="exp-org">Fatima Fellowship · Hugging Face &amp; Google Colab</div>
+          <div class="exp-role">Research Fellow · Remote · Mentor: Dr. Isidora Tourni</div>
+          <div class="exp-desc">Developing cross-lingual knowledge transfer mechanisms and pruning algorithms for large language models, as part of the Global Pre-doctoral Fellowship.</div>
+        </div>
+        <div class="exp-period">Sept 2024 – Present</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-org">Apurba-NSU R&amp;D Lab · North South University</div>
+          <div class="exp-role">Research Associate · Dhaka, Bangladesh · Supervisors: Dr. N. Mohammed, Dr. S. Rahman, Dr. F. Rahman</div>
+          <div class="exp-desc">Developed novel distillation and pruning algorithms (papers [1–4, 6, 8–10]). Mentored 10+ undergraduates; several co-authored peer-reviewed publications.</div>
+        </div>
+        <div class="exp-period">Sept 2021 – Present</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards" class="fade-section">
+    <div class="section-label">Recognition</div>
+    <h2>Awards &amp; Honors</h2>
+    <ul class="award-list">
+      <li class="award-item">
+        <div>
+          <div class="award-name">J2C Certification for LumiNet — Top 10% of accepted papers since 2024</div>
+          <div class="award-org">Transactions on Machine Learning Research (TMLR)</div>
+        </div>
+        <span class="award-year">2025</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">Research Innovation Center Fund ($5,000)</div>
+          <div class="award-org">World Bank / RIC Bangladesh</div>
+        </div>
+        <span class="award-year">2025</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">Fatima Fellowship (Global Pre-doctoral Fellowship)</div>
+          <div class="award-org">Hugging Face &amp; Google Colab</div>
+        </div>
+        <span class="award-year">2024</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">Oxford Machine Learning Summer School — Selected Participant</div>
+          <div class="award-org">University of Oxford</div>
+        </div>
+        <span class="award-year">2024</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">National ASR Competition — 2nd Runner-Up</div>
+          <div class="award-org">Kaggle / BUET</div>
+        </div>
+        <span class="award-year">2022</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">NSUPS Problem Solver Bootcamp — Runner-Up</div>
+          <div class="award-org">North South University</div>
+        </div>
+        <span class="award-year">2018</span>
+      </li>
+      <li class="award-item">
+        <div>
+          <div class="award-name">Academic Excellence Scholarship (50%)</div>
+          <div class="award-org">North South University</div>
+        </div>
+        <span class="award-year">2018</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service" class="fade-section">
+    <div class="section-label">Academic Service</div>
+    <h2>Community &amp; Service</h2>
+    <div class="service-grid">
+      <div class="service-block">
+        <h3>Peer Reviewer</h3>
+        <div class="venue-list">
+          <span class="venue-tag">CVPR 2026</span>
+          <span class="venue-tag">NeurIPS 2026</span>
+          <span class="venue-tag">TMLR</span>
+          <span class="venue-tag">ICLR 2025</span>
+          <span class="venue-tag">NeurIPS 2025</span>
+          <span class="venue-tag">ICML 2025 Workshop</span>
+          <span class="venue-tag">NeurIPS 2024 Workshop</span>
+          <span class="venue-tag">Pattern Recognition</span>
+          <span class="venue-tag">IJCNN 2025</span>
+        </div>
+      </div>
+      <div class="service-block">
+        <h3>Mentorship</h3>
+        <p style="font-size:14px; color:var(--ink2); line-height:1.6;">
+          Supervised 10+ undergraduate students at Apurba-NSU R&amp;D Lab. Several mentees co-authored peer-reviewed publications (papers [2, 3, 10]).
+          Offering <em>pro-bono</em> mentorship to first-generation researchers — reach out via email.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section id="talks" class="fade-section">
+    <div class="section-label">Talks &amp; Activity</div>
+    <h2>Talks</h2>
+    <ul class="talks-list">
+      <li><span class="talks-year">2025</span><span><strong>Scholastica Tech Summit</strong> — Judged three international events.</span></li>
+      <li><span class="talks-year">2024</span><span><strong>Cohere for AI (C4AI)</strong> — Lightning talk on LumiNet and Perception-Driven Knowledge Distillation.</span></li>
+      <li><span class="talks-year">2024</span><span><strong>Spring 2024 LeT-All Workshop</strong> — Selected participant, Learning Theory Alliance.</span></li>
+      <li><span class="talks-year">2022</span><span><strong>NSU ACM Student Chapter</strong> — Workshop on Efficiency in Deep Learning.</span></li>
+      <li><span class="talks-year">2022</span><span><strong>Microsoft Student Learn</strong> — Session on ASR and OCR advancements.</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 Md. Ismail Hossain · Gazipur, Dhaka, Bangladesh</span>
+    <a href="mailto:ismail.hossain2018@northsouth.edu">ismail.hossain2018@northsouth.edu</a>
+  </div>
+</footer>
+
+<script>
+  // ── DRAGGABLE NEWS PANEL ──
+  const panel  = document.getElementById('news-panel');
+  const handle = document.getElementById('news-drag-handle');
+  let dragging = false;
+  let startY   = 0;
+  let startH   = 0;
+
+  handle.addEventListener('mousedown', e => {
+    dragging = true;
+    startY   = e.clientY;
+    startH   = panel.offsetHeight;
+    document.body.style.cursor    = 'ns-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+  handle.addEventListener('touchstart', e => {
+    dragging = true;
+    startY   = e.touches[0].clientY;
+    startH   = panel.offsetHeight;
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta  = e.clientY - startY;
+    const newH   = Math.min(700, Math.max(120, startH + delta));
+    panel.style.height = newH + 'px';
+  });
+  document.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    const delta  = e.touches[0].clientY - startY;
+    const newH   = Math.min(700, Math.max(120, startH + delta));
+    panel.style.height = newH + 'px';
+  }, { passive: true });
+
+  document.addEventListener('mouseup',  () => { dragging = false; document.body.style.cursor = ''; document.body.style.userSelect = ''; });
+  document.addEventListener('touchend', () => { dragging = false; });
+
+  // ── SECTION FADE-IN ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-section').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
