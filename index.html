@@ -200,5 +200,55 @@
 
   <footer>Last updated September 2026.</footer>
 </div>
+  <script>
+  // ── DRAGGABLE NEWS PANEL ──
+  const panel  = document.getElementById('news-panel');
+  const handle = document.getElementById('news-drag-handle');
+  let dragging = false;
+  let startY   = 0;
+  let startH   = 0;
+
+  handle.addEventListener('mousedown', e => {
+    dragging = true;
+    startY   = e.clientY;
+    startH   = panel.offsetHeight;
+    document.body.style.cursor    = 'ns-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+  handle.addEventListener('touchstart', e => {
+    dragging = true;
+    startY   = e.touches[0].clientY;
+    startH   = panel.offsetHeight;
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta  = e.clientY - startY;
+    const newH   = Math.min(700, Math.max(120, startH + delta));
+    panel.style.height = newH + 'px';
+  });
+  document.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    const delta  = e.touches[0].clientY - startY;
+    const newH   = Math.min(700, Math.max(120, startH + delta));
+    panel.style.height = newH + 'px';
+  }, { passive: true });
+
+  document.addEventListener('mouseup',  () => { dragging = false; document.body.style.cursor = ''; document.body.style.userSelect = ''; });
+  document.addEventListener('touchend', () => { dragging = false; });
+
+  // ── SECTION FADE-IN ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-section').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.04) + 's';
+    obs.observe(el);
+  });
+</script>
 </body>
 </html>
