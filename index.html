@@ -40,6 +40,8 @@
   .venue { font-style: italic; }
   .me { font-weight: 600; }
   .desc { margin-top: 4px; color: #444; }
+  .hl { background: #fff4c2; padding: 0 2px; border-radius: 2px; }
+  .new { font-size: 12px; color: #9a6700; font-weight: 600; margin-left: 4px; }
 
   .other li { margin-bottom: 10px; }
   .row { display: flex; justify-content: space-between; gap: 16px; }
@@ -52,7 +54,7 @@
     .photo { width: 120px; height: 120px; }
     .pub { flex-direction: column; gap: 8px; }
     .pub img { display: none; }
-    .date { width: 70px; }
+      .date { width: 70px; }
   }
 </style>
 </head>
@@ -62,7 +64,8 @@
   <div class="intro">
     <div class="intro-text">
       <h1>Md. Ismail Hossain</h1>
-      <p>I am a researcher at the Machine Intelligence Lab, North South University, Bangladesh. I work on efficient post-training of language models, mainly knowledge distillation, on-policy self-distillation and sparsity. I am interested in where the learning signal actually matters during adaptation, so that models can be improved with less data, annotation and compute.</p>
+      <p>I am a researcher at the Machine Intelligence Lab, North South University, Bangladesh. I work on efficient post-training of language models, mainly knowledge distillation, on-policy self-distillation and sparsity. I am interested in <span class="hl">where the learning signal actually matters when a model adapts</span>, so that models can be improved with less data, annotation and compute.</p>
+      <p>Much of how I think about this comes from philosophy, psychology and cognitive science. People learn a great deal from a few well-chosen experiences and quietly ignore the rest. I want models to learn the same way.</p>
       <p>Previously, I was a Research Associate at the Apurba-NSU R&amp;D Lab, working with Dr. Nabeel Mohammed and Dr. Shafin Rahman, and a Fatima Fellow (Hugging Face &amp; Google Colab) mentored by Dr. Isidora Tourni. I received my B.Sc. in Computer Science and Engineering from North South University in 2021.</p>
       <p>I am open to PhD positions and research collaborations.</p>
       <p class="links">
@@ -74,6 +77,7 @@
 
   <h2>News</h2>
   <ul class="plain">
+    <li><span class="date">Sep 2026</span>Released <a href="https://arxiv.org/abs/2609.37915">OASIS</a> on arXiv, on why on-policy self-distillation fades at scale and how to fix it.</li>
     <li><span class="date">Jul 2026</span>Presented LumiNet at ICML 2026.</li>
     <li><span class="date">Jun 2026</span>Papers accepted to IEEE JBHI and Interspeech 2026.</li>
     <li><span class="date">May 2026</span>Received a compute grant from Lambda.</li>
@@ -102,13 +106,24 @@
   <p class="muted">* equal contribution. Full list on <a href="https://scholar.google.com/citations?user=8f7b5YIAAAAJ">Google Scholar</a>.</p>
 
   <div class="pub">
+    <img src="images/oasis.jpg" alt="OASIS keeps its gain over the base model as model size grows, while OPSD's gain fades">
+    <div>
+      <a class="pub-title" href="https://arxiv.org/abs/2609.37915">Overcoming Scaling Limits in On-Policy Self-Distillation for LLM Reasoning</a><span class="new">New</span>
+      <span class="authors"><span class="me">Md. Ismail Hossain</span>, Humaira Kousar, Isidora Chara Tourni</span>
+      <span class="venue">arXiv preprint, 2026</span>
+      <a href="https://arxiv.org/abs/2609.37915">paper</a>
+      <div class="desc">On-policy self-distillation stops helping as models grow, because most updates land on attempts that never reach a correct answer. OASIS distills only along verified attempts and <span class="hl">keeps a gain of 3.2 to 3.8 points at every scale</span>, using only final-answer labels.</div>
+    </div>
+  </div>
+
+  <div class="pub">
     <img src="images/paper8.jpg" alt="">
     <div>
       <a class="pub-title" href="https://openreview.net/forum?id=3rU1lp9w2l">LumiNet: Perception-Driven Knowledge Distillation via Statistical Logit Calibration</a>
       <span class="authors"><span class="me">Md. Ismail Hossain</span>, MM Lutfe Elahi, Sameera Ramasinghe, Ali Cheraghian, Fuad Rahman, Nabeel Mohammed, Shafin Rahman</span>
       <span class="venue">TMLR 2025, J2C Certification; presented at ICML 2026</span>
       <a href="https://openreview.net/forum?id=3rU1lp9w2l">paper</a> / <a href="https://github.com/ismail31416/LumiNet">code</a>
-      <div class="desc">Calibrates teacher and student logits through a shared statistical function, reducing the propagation of teacher errors in distillation.</div>
+      <div class="desc">Calibrates teacher and student logits through a shared statistical function, reducing the propagation of teacher errors in distillation. <span class="hl">Received a TMLR J2C Certification.</span></div>
     </div>
   </div>
 
@@ -119,7 +134,7 @@
       <span class="authors"><span class="me">Md. Ismail Hossain</span>, Mohammad Rakib, MM Lutfe Elahi, Nabeel Mohammed, Shafin Rahman</span>
       <span class="venue">IEEE Transactions on Artificial Intelligence, 2025</span>
       <a href="https://ieeexplore.ieee.org/abstract/document/10855806/">paper</a> / <a href="https://github.com/ismail31416/COLT">code</a>
-      <div class="desc">Uses the overlap between winning tickets of models trained on different tasks to prune about 50% faster than iterative lottery-ticket pruning.</div>
+      <div class="desc">Uses the overlap between winning tickets of models trained on different tasks to prune <span class="hl">about 50% faster</span> than iterative lottery-ticket pruning.</div>
     </div>
   </div>
 
@@ -130,7 +145,7 @@
       <span class="authors">Amrijit Biswas*, <span class="me">Md. Ismail Hossain*</span>, MM Lutfe Elahi, Ali Cheraghian, Fuad Rahman, Nabeel Mohammed, Shafin Rahman</span>
       <span class="venue">BMVC 2024</span>
       <a href="https://arxiv.org/abs/2408.14601">paper</a> / <a href="https://github.com/apurba-nsu-rnd-lab/PCNN_Pruning">code</a>
-      <div class="desc">About 99% of the weights in 3D point-cloud networks can be removed with near-baseline accuracy.</div>
+      <div class="desc"><span class="hl">About 99% of the weights</span> in 3D point-cloud networks can be removed with near-baseline accuracy.</div>
     </div>
   </div>
 
@@ -194,61 +209,12 @@
   </ul>
 
   <h2>Service &amp; Talks</h2>
-  <p><b>Reviewer:</b> NeurIPS 2026, CVPR 2026, ICLR 2026 2027, TMLR, NeurIPS 2025, ICML 2025 workshop (LXAI), NeurIPS 2024 workshop (ML &amp; Compression).</p>
+  <p><b>Reviewer:</b> NeurIPS 2026, CVPR 2026, ICLR 2026 and 2027, TMLR, NeurIPS 2025, ICML 2025 workshop (LXAI), NeurIPS 2024 workshop (ML &amp; Compression).</p>
   <p><b>Talks:</b> LumiNet, Cohere For AI (2024); Efficiency in deep learning, NSU ACM Student Chapter (2022); ASR and OCR, Microsoft Learn Student Ambassadors (2022).</p>
   <p><b>Mentoring:</b> I have mentored undergraduate researchers at the Apurba-NSU R&amp;D Lab, and I am happy to talk with first-generation students starting in research.</p>
 
-  <footer>Last updated September 2026.</footer>
+  <footer>Last updated October 2026.</footer>
 </div>
-  <script>
-  // ── DRAGGABLE NEWS PANEL ──
-  const panel  = document.getElementById('news-panel');
-  const handle = document.getElementById('news-drag-handle');
-  let dragging = false;
-  let startY   = 0;
-  let startH   = 0;
-
-  handle.addEventListener('mousedown', e => {
-    dragging = true;
-    startY   = e.clientY;
-    startH   = panel.offsetHeight;
-    document.body.style.cursor    = 'ns-resize';
-    document.body.style.userSelect = 'none';
-    e.preventDefault();
-  });
-  handle.addEventListener('touchstart', e => {
-    dragging = true;
-    startY   = e.touches[0].clientY;
-    startH   = panel.offsetHeight;
-    e.preventDefault();
-  }, { passive: false });
-
-  document.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    const delta  = e.clientY - startY;
-    const newH   = Math.min(700, Math.max(120, startH + delta));
-    panel.style.height = newH + 'px';
-  });
-  document.addEventListener('touchmove', e => {
-    if (!dragging) return;
-    const delta  = e.touches[0].clientY - startY;
-    const newH   = Math.min(700, Math.max(120, startH + delta));
-    panel.style.height = newH + 'px';
-  }, { passive: true });
-
-  document.addEventListener('mouseup',  () => { dragging = false; document.body.style.cursor = ''; document.body.style.userSelect = ''; });
-  document.addEventListener('touchend', () => { dragging = false; });
-
-  // ── SECTION FADE-IN ──
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.06 });
-  document.querySelectorAll('.fade-section').forEach((el, i) => {
-    el.style.transitionDelay = (i * 0.04) + 's';
-    obs.observe(el);
-  });
-</script>
+<script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=f3K1K6hGj3AZOtl08LhBeI1vwxJuDpkLIk6mXFgmJ_w&cl=ffffff&w=a"></script>
 </body>
 </html>
